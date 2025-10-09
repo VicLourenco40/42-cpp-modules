@@ -1,13 +1,19 @@
 #include <iostream>
 #include <cctype>
 
-void	capitalize_string(char* string);
+static void capitalize_string(char* string)
+{
+	while (*string) {
+		*string = toupper(*string);
+		string++;
+	}
+}
 
-int	main(int argc, char** argv)
+int main(int argc, char** argv)
 {
 	if (argc < 2) {
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-		return (0);
+		return 0;
 	}
 	argv++;
 	while (*argv) {
@@ -16,12 +22,4 @@ int	main(int argc, char** argv)
 		argv++;
 	}
 	std::cout << '\n';
-}
-
-void	capitalize_string(char* string)
-{
-	while (*string) {
-		*string = toupper(*string);
-		string++;
-	}
 }
