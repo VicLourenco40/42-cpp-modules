@@ -20,7 +20,7 @@ void PhoneBook::add_contact()
 	contacts[num_contacts - 1].fill_fields();
 }
 
-void PhoneBook::search_contact()
+void PhoneBook::search_contact() const
 {
 	if (num_contacts == 0) {
 		std::cout << "\nNo contacts.\n\n";

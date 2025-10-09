@@ -13,8 +13,8 @@ class Contact
 
 public:
 	static void display_header();
-	void display();
-	void display(int index);
+	void display() const;
+	void display(int index) const;
 	void fill_fields();
 };
 

@@ -26,7 +26,7 @@ void Contact::fill_fields()
 	std::cout << "\nContact " << first_name << ' ' << last_name << " added.\n\n";
 }
 
-void Contact::display()
+void Contact::display() const
 {
 	std::cout << std::setw(17) << "First name | " << first_name << '\n';
 	std::cout << std::setw(17) << "Last name | " << last_name << '\n';
@@ -42,7 +42,7 @@ static std::string truncate_field(const std::string& field)
 	return field;
 }
 
-void Contact::display(int index)
+void Contact::display(int index) const
 {
 	std::cout << std::setw(10) << index << " | ";
 	std::cout << std::setw(10) << truncate_field(first_name) << " | ";
