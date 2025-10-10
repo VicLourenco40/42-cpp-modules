@@ -4,6 +4,17 @@
 
 #include "Contact.hpp"
 
+static bool is_str_whitespace(const char *str)
+{
+	while (*str)
+	{
+		if (!isspace(*str))
+			return (false);
+		str++;
+	}
+	return (true);
+}
+
 static void get_input(const std::string prompt, std::string& str)
 {
 	do {
@@ -13,7 +24,7 @@ static void get_input(const std::string prompt, std::string& str)
 			std::cout << '\n';
 			std::exit(1);
 		}
-	} while (str.empty());
+	} while (str.empty() || is_str_whitespace(str.c_str()));
 }
 
 void Contact::fill_fields()
@@ -44,16 +55,16 @@ static std::string truncate_field(const std::string& field)
 
 void Contact::display(int index) const
 {
-	std::cout << std::setw(10) << index << " | ";
-	std::cout << std::setw(10) << truncate_field(first_name) << " | ";
-	std::cout << std::setw(10) << truncate_field(last_name) << " | ";
+	std::cout << std::setw(10) << index << '|';
+	std::cout << std::setw(10) << truncate_field(first_name) << '|';
+	std::cout << std::setw(10) << truncate_field(last_name) << '|';
 	std::cout << std::setw(10) << truncate_field(nickname) << '\n';
 }
 
 void Contact::display_header()
 {
-	std::cout << std::setw(10) << "Index" << " | ";
-	std::cout << std::setw(10) << "First Name" << " | ";
-	std::cout << std::setw(10) << "Last Name" <<  " | ";
+	std::cout << std::setw(10) << "Index" << '|';
+	std::cout << std::setw(10) << "First Name" << '|';
+	std::cout << std::setw(10) << "Last Name" <<  '|';
 	std::cout << std::setw(10) << "Nickname" << '\n';
 }
