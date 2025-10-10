@@ -55,16 +55,16 @@ static std::string truncate_field(const std::string& field)
 
 void Contact::display(int index) const
 {
-	std::cout << std::setw(10) << index << '|';
-	std::cout << std::setw(10) << truncate_field(first_name) << '|';
-	std::cout << std::setw(10) << truncate_field(last_name) << '|';
+	std::cout << std::setw(10) << index << " | ";
+	std::cout << std::setw(10) << truncate_field(first_name) << " | ";
+	std::cout << std::setw(10) << truncate_field(last_name) << " | ";
 	std::cout << std::setw(10) << truncate_field(nickname) << '\n';
 }
 
 void Contact::display_header()
 {
-	std::cout << std::setw(10) << "Index" << '|';
-	std::cout << std::setw(10) << "First Name" << '|';
-	std::cout << std::setw(10) << "Last Name" <<  '|';
+	std::cout << std::setw(10) << "Index" << " | ";
+	std::cout << std::setw(10) << "First Name" << " | ";
+	std::cout << std::setw(10) << "Last Name" <<  " | ";
 	std::cout << std::setw(10) << "Nickname" << '\n';
 }
