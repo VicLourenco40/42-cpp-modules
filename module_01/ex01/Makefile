@@ -4,7 +4,7 @@ SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 OBJS = $(patsubst %.cpp,%.o,$(SRCS))
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
