@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-	if (argc < 4) {
+	if (argc != 4) {
 		std::cout << "usage: sed <infile> <string> <replacement>\n";
 		return 0;
 	}
