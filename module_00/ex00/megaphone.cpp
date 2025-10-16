@@ -1,12 +1,12 @@
 #include <iostream>
 #include <cctype>
 
-static void capitalize_string(char* string)
+static void print_capitalized(const std::string& str)
 {
-	while (*string) {
-		*string = toupper(*string);
-		string++;
-	}
+	std::string::const_iterator it;
+
+	for(it = str.begin(); it != str.end(); ++it)
+		std::cout << static_cast<char>(std::toupper(*it));
 }
 
 int main(int argc, char** argv)
@@ -15,11 +15,7 @@ int main(int argc, char** argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 		return 0;
 	}
-	argv++;
-	while (*argv) {
-		capitalize_string(*argv);
-		std::cout << *argv;
-		argv++;
-	}
+	while (*++argv)
+		print_capitalized(std::string(*argv));
 	std::cout << '\n';
 }
