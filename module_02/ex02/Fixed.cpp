@@ -34,56 +34,56 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return *this;
 }
 
-bool Fixed::operator>(const Fixed& other)
+bool Fixed::operator>(const Fixed& other) const
 {
 	return value > other.value;
 }
 
-bool Fixed::operator<(const Fixed& other)
+bool Fixed::operator<(const Fixed& other) const
 {
 	return value < other.value;
 }
 
-bool Fixed::operator>=(const Fixed& other)
+bool Fixed::operator>=(const Fixed& other) const
 {
 	return value >= other.value;
 }
 
-bool Fixed::operator<=(const Fixed& other)
+bool Fixed::operator<=(const Fixed& other) const
 {
 	return value <= other.value;
 }
 
-bool Fixed::operator==(const Fixed& other)
+bool Fixed::operator==(const Fixed& other) const
 {
 	return value == other.value;
 }
 
-bool Fixed::operator!=(const Fixed& other)
+bool Fixed::operator!=(const Fixed& other) const
 {
 	return value != other.value;
 }
 
-Fixed Fixed::operator+(const Fixed& other)
+Fixed Fixed::operator+(const Fixed& other) const
 {
 	Fixed ret = *this;
 	ret.value += other.value;
 	return ret;
 }
 
-Fixed Fixed::operator-(const Fixed& other)
+Fixed Fixed::operator-(const Fixed& other) const
 {
 	Fixed ret = *this;
 	ret.value -= other.value;
 	return ret;
 }
 
-Fixed Fixed::operator*(const Fixed& other)
+Fixed Fixed::operator*(const Fixed& other) const
 {
 	return Fixed(toFloat() * other.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed& other)
+Fixed Fixed::operator/(const Fixed& other) const
 {
 	return Fixed(toFloat() / other.toFloat());
 }
