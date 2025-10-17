@@ -22,10 +22,9 @@ Fixed::Fixed(const float num) : value(roundf(num * (1 << fractBits)))
 	//std::cout << "Float constructor called\n";
 }
 
-Fixed::Fixed(const Fixed& other)
+Fixed::Fixed(const Fixed& other) : value(other.value)
 {
 	//std::cout << "Copy constructor called\n";
-	*this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
