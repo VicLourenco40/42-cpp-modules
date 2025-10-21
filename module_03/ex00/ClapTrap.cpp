@@ -32,21 +32,15 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 bool ClapTrap::isAlive() const
 {
 	if (!hitPoints)
-	{
 		std::cout << "ClapTrap " << name << " is out of order.\n";
-		return false;
-	}
-	return true;
+	return hitPoints;
 }
 
 bool ClapTrap::hasEnergy() const
 {
 	if (!energyPoints)
-	{
-		std::cout << "ClapTrap has no energy points.\n";
-		return false;
-	}
-	return true;
+		std::cout << "ClapTrap " << name << " has no energy points.\n";
+	return energyPoints;
 }
 
 void ClapTrap::attack(const std::string& target)
