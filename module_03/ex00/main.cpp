@@ -7,9 +7,9 @@ int main()
 
 	robot.attack(otherRobot);
 	robot.takeDamage(5);
-	robot.beRepaired(5);
+	robot.beRepaired(2);
 	robot.takeDamage(5);
 	robot.takeDamage(10);
 	robot.attack(otherRobot);
-	robot.beRepaired(1);
+	robot.beRepaired(2);
 }
