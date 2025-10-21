@@ -14,9 +14,10 @@ class ClapTrap
 	bool hasEnergy() const;
 
 public:
+	ClapTrap();
 	ClapTrap(const std::string& name);
-	~ClapTrap();
 	ClapTrap(const ClapTrap& other);
+	~ClapTrap();
 	ClapTrap& operator=(const ClapTrap& other);
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
