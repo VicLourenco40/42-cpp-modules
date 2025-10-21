@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "Assignment operator overload called\n";
+	std::cout << "Assignment operator called\n";
 	name = other.name;
 	hitPoints = other.hitPoints;
 	energyPoints = other.energyPoints;
