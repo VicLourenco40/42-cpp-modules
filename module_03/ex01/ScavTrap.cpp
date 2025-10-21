@@ -1,0 +1,55 @@
+#include <iostream>
+#include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap() : ClapTrap(), gatekeeperMode(false)
+{
+	std::cout << "Derived class default constructor called\n";
+}
+
+ScavTrap::ScavTrap(const std::string& name) :
+	ClapTrap(name), gatekeeperMode(false)
+{
+	std::cout << "Derived class constructor called\n";
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
+}
+
+ScavTrap::~ScavTrap()
+{
+	std::cout << "Derived class destructor called\n";
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) :
+	ClapTrap(other), gatekeeperMode(other.gatekeeperMode)
+{
+	std::cout << "Derived class copy constructor called\n";
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	ClapTrap::operator=(other);
+	std::cout << "Derived class assignment operator called\n";
+	gatekeeperMode = other.gatekeeperMode;
+	return *this;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (!isAlive() || !hasEnergy())
+		return;
+	std::cout << "ScavTrap " << name << " attacks " << target <<
+		", causing " << attackDamage << " points of damage!\n";
+	energyPoints--;
+}
+
+void ScavTrap::guardGate()
+{
+	if (!isAlive())
+		return;
+	gatekeeperMode = !gatekeeperMode;
+	if (gatekeeperMode)
+		std::cout << "ScavTrap " << name << " is now in gatekeeper mode.\n";
+	else
+		std::cout << "ScavTrap " << name << " is no longer in gatekeeper mode.\n";
+}
