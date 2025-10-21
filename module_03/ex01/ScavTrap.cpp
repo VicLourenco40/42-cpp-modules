@@ -3,13 +3,13 @@
 
 ScavTrap::ScavTrap() : ClapTrap(), gatekeeperMode(false)
 {
-	std::cout << "Derived class default constructor called\n";
+	std::cout << "ScavTrap default constructor called\n";
 }
 
 ScavTrap::ScavTrap(const std::string& name) :
 	ClapTrap(name), gatekeeperMode(false)
 {
-	std::cout << "Derived class constructor called\n";
+	std::cout << "ScavTrap constructor called\n";
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 20;
@@ -17,19 +17,19 @@ ScavTrap::ScavTrap(const std::string& name) :
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Derived class destructor called\n";
+	std::cout << "ScavTrap destructor called\n";
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) :
 	ClapTrap(other), gatekeeperMode(other.gatekeeperMode)
 {
-	std::cout << "Derived class copy constructor called\n";
+	std::cout << "ScavTrap copy constructor called\n";
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	ClapTrap::operator=(other);
-	std::cout << "Derived class assignment operator called\n";
+	std::cout << "ScavTrap assignment operator called\n";
 	gatekeeperMode = other.gatekeeperMode;
 	return *this;
 }
