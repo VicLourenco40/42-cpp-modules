@@ -4,7 +4,7 @@
 ClapTrap::ClapTrap(const std::string& name) :
 	name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << "Constructor called\n";
 }
 
 ClapTrap::~ClapTrap()
