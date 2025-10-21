@@ -4,6 +4,9 @@
 ScavTrap::ScavTrap() : ClapTrap(), gatekeeperMode(false)
 {
 	std::cout << "ScavTrap default constructor called\n";
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string& name) :
