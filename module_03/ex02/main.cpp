@@ -4,7 +4,6 @@
 int main()
 {
 	FragTrap robot("FR4G-TP");
-	ScavTrap robot2("SC4V-TP");
 	std::string otherRobot = "CU5TM-TP";
 
 	robot.highFivesGuys();
