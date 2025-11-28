@@ -22,10 +22,10 @@ public:
 	Form& operator=(const Form& other);
 
 	const std::string& getName(void) const;
-	int 	getSignGrade(void) const;
-	int 	getExecGrade(void) const;
-	bool	getIsSigned(void) const;
-	void	beSigned(const Bureaucrat& bureaucrat);
+	int getSignGrade(void) const;
+	int getExecGrade(void) const;
+	bool getIsSigned(void) const;
+	void beSigned(const Bureaucrat& bureaucrat);
 
 	class GradeTooLowException : public std::exception
 	{

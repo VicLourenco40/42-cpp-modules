@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-int	main(void)
+int main(void)
 {
 	Bureaucrat a("a", 10);
 	std::cout << a << '\n';
