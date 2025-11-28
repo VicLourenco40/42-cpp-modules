@@ -6,9 +6,11 @@ int main(void)
 {
 	Bureaucrat a("a", 150);
 	std::cout << a << '\n';
+	std::cout << '\n';
 
 	Bureaucrat b("b", 1);
 	std::cout << b << '\n';
+	std::cout << '\n';
 
 	try
 	{
@@ -19,6 +21,7 @@ int main(void)
 	{
 		std::cout << "c constructor failed: " << e.what() << '\n';
 	}
+	std::cout << '\n';
 
 	try
 	{
@@ -29,15 +32,14 @@ int main(void)
 	{
 		std::cout << "d constructor failed: " << e.what() << '\n';
 	}
+	std::cout << '\n';
 
 	try
 	{
 		Bureaucrat e("e", 149);
 		std::cout << e << '\n';
-
 		e.decrementGrade();
 		std::cout << e << '\n';
-
 		e.decrementGrade();
 		std::cout << e << '\n';
 	}
@@ -45,15 +47,14 @@ int main(void)
 	{
 		std::cout << "e grade decrement failed: " << e.what() << '\n';
 	}
+	std::cout << '\n';
 
 	try
 	{
 		Bureaucrat f("f", 2);
 		std::cout << f << '\n';
-
 		f.incrementGrade();
 		std::cout << f << '\n';
-
 		f.incrementGrade();
 		std::cout << f << '\n';
 	}

@@ -7,17 +7,19 @@ int main(void)
 {
 	Bureaucrat a("a", 10);
 	std::cout << a << '\n';
+	std::cout << '\n';
 
 	Bureaucrat b("b", 5);
 	std::cout << b << '\n';
+	std::cout << '\n';
 
 	Form fa("fa", 7, 1);
 	std::cout << fa << '\n';
-
 	a.signForm(fa);
 	std::cout << fa << '\n';
 	b.signForm(fa);
 	std::cout << fa << '\n';
+	std::cout << '\n';
 
 	try
 	{
@@ -28,6 +30,7 @@ int main(void)
 	{
 		std::cout << "fb constructor failed: " << e.what() << '\n';
 	}
+	std::cout << '\n';
 
 	try
 	{
