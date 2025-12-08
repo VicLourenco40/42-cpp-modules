@@ -5,7 +5,7 @@ SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
 OBJS = $(patsubst %.cpp,%.o,$(SRCS))
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
