@@ -22,7 +22,7 @@ public:
 	AForm(const AForm& other);
 	AForm(const std::string& name, const std::string& target,
 		int signGrade, int execGrade);
-	~AForm(void);
+	virtual ~AForm(void);
 
 	AForm& operator=(const AForm& other);
 
