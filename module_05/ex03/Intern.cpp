@@ -33,6 +33,7 @@ AForm* Intern::makeForm(
 		RobotomyRequestForm::newForm,
 		PresidentialPardonForm::newForm
 	};
+
 	AForm* form;
 	for (int i = 0; i < 3; i++)
 	{

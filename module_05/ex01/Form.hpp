@@ -13,8 +13,9 @@ private:
 	const int execGrade;
 	bool isSigned;
 
-public:
 	Form(void);
+
+public:
 	Form(const Form& other);
 	Form(const std::string& name, int signGrade, int execGrade);
 	~Form(void);

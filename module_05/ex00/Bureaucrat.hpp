@@ -12,10 +12,11 @@ private:
 	const std::string name;
 	int grade;
 
+	Bureaucrat(void);
+
 	void setGrade(int grade);
 
 public:
-	Bureaucrat(void);
 	Bureaucrat(const Bureaucrat& other);
 	Bureaucrat(const std::string& name, int grade);
 	~Bureaucrat(void);

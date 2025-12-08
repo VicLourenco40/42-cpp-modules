@@ -11,13 +11,14 @@ private:
 	const std::string name;
 	int grade;
 
+	Bureaucrat(void);
+
 	void setGrade(int grade);
 
 public:
 	static const int lowestGrade = 150;
 	static const int highestGrade = 1;
 
-	Bureaucrat(void);
 	Bureaucrat(const Bureaucrat& other);
 	Bureaucrat(const std::string& name, int grade);
 	~Bureaucrat(void);
