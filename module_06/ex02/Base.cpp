@@ -53,7 +53,6 @@ void identify(const Base& ref)
 	{
 		(void)dynamic_cast<const C&>(ref);
 		std::cout << "C\n";
-		return ;
 	}
 	catch (...) {}
 }
