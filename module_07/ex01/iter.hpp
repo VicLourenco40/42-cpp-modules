@@ -4,20 +4,20 @@
 #include <iostream>
 
 template<typename T>
-void iter(T *const arr, const size_t len, void (*const f)(T&))
+void iter(T *const arr, const std::size_t len, void (*const f)(T&))
 {
 	if (!arr || !f)
 		return;
-	for (size_t i = 0; i < len; i++)
+	for (std::size_t i = 0; i < len; i++)
 		f(arr[i]);
 }
 
 template<typename T>
-void iter(const T *const arr, const size_t len, void (*const f)(const T&))
+void iter(const T *const arr, const std::size_t len, void (*const f)(const T&))
 {
 	if (!arr || !f)
 		return;
-	for (size_t i = 0; i < len; i++)
+	for (std::size_t i = 0; i < len; i++)
 		f(arr[i]);
 }
 
