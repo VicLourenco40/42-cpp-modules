@@ -3,11 +3,6 @@
 
 #include <algorithm>
 
-const char* NotFoundException::what(void) const throw()
-{
-	return "Element not found";
-}
-
 template<typename T>
 typename T::iterator easyfind(T& c, const int e)
 {

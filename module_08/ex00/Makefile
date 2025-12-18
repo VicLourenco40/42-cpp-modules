@@ -1,6 +1,6 @@
 NAME = easyfind
 
-SRCS = main.cpp
+SRCS = main.cpp easyfind.cpp
 OBJS = $(patsubst %.cpp,%.o,$(SRCS))
 
 CXX = c++

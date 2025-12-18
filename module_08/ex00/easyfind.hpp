@@ -5,6 +5,7 @@
 
 class NotFoundException : public std::exception
 {
+public:
 	const char* what(void) const throw();
 };
 
