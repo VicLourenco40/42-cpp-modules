@@ -53,8 +53,7 @@ BitcoinExchange::entry_t BitcoinExchange::parseCsvLine(
 
 badInput:
 	std::cerr << "error: bad input => " << line << '\n';
-	data.first = -1;
-	return data;
+	return entry_t(-1, 0);
 }
 
 void BitcoinExchange::printRealValues(std::ifstream& inputFile) const
