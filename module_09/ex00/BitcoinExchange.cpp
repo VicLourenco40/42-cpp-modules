@@ -22,10 +22,9 @@ BitcoinExchange::BitcoinExchange(std::ifstream& dbFile)
 
 		entry = parseCsvLine(line, ',');
 		if (entry.first == -1)
-			continue;
-
-		db.insert(entry);
-		//std::cout << entry.first << ' ' << db[entry.first] << '\n';
+			std::cerr << "error: bad db entry => " << line << '\n';
+		else
+			db.insert(entry);
 	}
 }
 
@@ -42,18 +41,14 @@ BitcoinExchange::entry_t BitcoinExchange::parseCsvLine(
 	char *end = strptime(line.c_str(), (format + delim).c_str(), &date);
 	data.first = std::mktime(&date);
 	if (!end || *end == '\0' || data.first == -1)
-		goto badInput;
+		return entry_t(-1, 0);
 
 	errno = 0;
 	data.second = std::strtof(end, &end);
 	if (*end != '\0' || errno == ERANGE)
-		goto badInput;
+		return entry_t(-1, 0);
 
 	return data;
-
-badInput:
-	std::cerr << "error: bad input => " << line << '\n';
-	return entry_t(-1, 0);
 }
 
 void BitcoinExchange::printRealValues(std::ifstream& inputFile) const
@@ -75,31 +70,23 @@ void BitcoinExchange::printRealValues(std::ifstream& inputFile) const
 
 		entry = parseCsvLine(line, '|');
 		if (entry.first == -1)
-			continue;
-
-		if (entry.first < earliestTime)
-		{
+			std::cerr << "error: bad input => " << line << '\n';
+		else if (entry.first < earliestTime)
 			std::cerr << "error: date too early\n";
-			continue;
-		}
-		if (entry.second < 0)
-		{
+		else if (entry.second < 0)
 			std::cerr << "error: negative value\n";
-			continue;
-		}
-		if (entry.second > 1000)
-		{
+		else if (entry.second > 1000)
 			std::cerr << "error: value too high\n";
-			continue;
-		}
-
-		if (db.find(entry.first) == db.end())
-			exchangeRate = (--db.lower_bound(entry.first))->second;
 		else
-			exchangeRate = db.at(entry.first);
+		{
+			if (db.find(entry.first) == db.end())
+				exchangeRate = (--db.lower_bound(entry.first))->second;
+			else
+				exchangeRate = db.at(entry.first);
 
-		std::strftime(dateStr, 11, "%F", std::gmtime(&entry.first));
-		std::cout << dateStr << " => " << entry.second
-			<< " = " << exchangeRate * entry.second << '\n';
+			std::strftime(dateStr, 11, "%F", std::gmtime(&entry.first));
+			std::cout << dateStr << " => " << entry.second
+				<< " = " << exchangeRate * entry.second << '\n';
+		}
 	}
 }
