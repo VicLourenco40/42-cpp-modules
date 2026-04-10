@@ -7,6 +7,8 @@
 
 BitcoinExchange::BitcoinExchange(void) {};
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : db(other.db) {}
+
 BitcoinExchange::BitcoinExchange(std::ifstream& dbFile)
 {
 	std::string line;
@@ -29,6 +31,12 @@ BitcoinExchange::BitcoinExchange(std::ifstream& dbFile)
 }
 
 BitcoinExchange::~BitcoinExchange(void) {};
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
+{
+	db = other.db;
+	return *this;
+}
 
 BitcoinExchange::entry_t BitcoinExchange::parseCsvLine(
 	const std::string& line, const char delim) const

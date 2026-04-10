@@ -18,8 +18,11 @@ private:
 	entry_t parseCsvLine(const std::string& line, const char delim) const;
 
 public:
+	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange(std::ifstream& dbFile);
 	~BitcoinExchange(void);
+
+	BitcoinExchange& operator=(const BitcoinExchange& other);
 
 	void printRealValues(std::ifstream& inputFile) const;
 };
