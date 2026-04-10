@@ -16,8 +16,7 @@ BitcoinExchange::BitcoinExchange(std::ifstream& dbFile)
 
 	entry_t entry;
 
-	while (true)
-	{
+	while (true) {
 		std::getline(dbFile, line);
 		if (dbFile.eof())
 			break;
@@ -70,8 +69,7 @@ void BitcoinExchange::printRealValues(std::ifstream& inputFile) const
 	float exchangeRate;
 	char dateStr[11] = {};
 
-	while (true)
-	{
+	while (true) {
 		std::getline(inputFile, line);
 		if (inputFile.eof())
 			break;
@@ -85,8 +83,7 @@ void BitcoinExchange::printRealValues(std::ifstream& inputFile) const
 			std::cerr << "error: negative value\n";
 		else if (entry.second > 1000)
 			std::cerr << "error: value too high\n";
-		else
-		{
+		else {
 			if (db.find(entry.first) == db.end())
 				exchangeRate = (--db.lower_bound(entry.first))->second;
 			else
