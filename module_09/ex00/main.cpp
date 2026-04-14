@@ -21,9 +21,9 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	BitcoinExchange be(dbFile);
+	BitcoinExchange::initializeDatabase(dbFile);
 	dbFile.close();
 
-	be.printRealValues(inputFile);
+	BitcoinExchange::printRealValues(inputFile);
 	inputFile.close();
 }

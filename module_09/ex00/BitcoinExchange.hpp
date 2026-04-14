@@ -11,20 +11,20 @@ class BitcoinExchange
 private:
 	typedef std::pair<std::time_t, float> entry_t;
 
-	std::map<std::time_t, float> db;
+	static std::map<std::time_t, float> db;
 
 	BitcoinExchange(void);
-
-	entry_t parseCsvLine(const std::string& line, const char delim) const;
-
-public:
 	BitcoinExchange(const BitcoinExchange& other);
-	BitcoinExchange(std::ifstream& dbFile);
-	~BitcoinExchange(void);
 
 	BitcoinExchange& operator=(const BitcoinExchange& other);
 
-	void printRealValues(std::ifstream& inputFile) const;
+	static entry_t parseCsvLine(const std::string& line, const char delim);
+
+public:
+	~BitcoinExchange(void);
+
+	static void initializeDatabase(std::ifstream& dbFile);
+	static void printRealValues(std::ifstream& inputFile);
 };
 
 #endif

@@ -5,40 +5,25 @@
 #include <cstdlib>
 #include <cerrno>
 
+std::map<std::time_t, float> BitcoinExchange::db;
+
 BitcoinExchange::BitcoinExchange(void) {};
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : db(other.db) {}
-
-BitcoinExchange::BitcoinExchange(std::ifstream& dbFile)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
 {
-	std::string line;
-	std::getline(dbFile, line); // skip header
-
-	entry_t entry;
-
-	while (true) {
-		std::getline(dbFile, line);
-		if (dbFile.eof())
-			break;
-
-		entry = parseCsvLine(line, ',');
-		if (entry.first == -1)
-			std::cerr << "error: bad db entry => " << line << '\n';
-		else
-			db.insert(entry);
-	}
+	(void)other;
 }
 
 BitcoinExchange::~BitcoinExchange(void) {};
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 {
-	db = other.db;
+	(void)other;
 	return *this;
 }
 
 BitcoinExchange::entry_t BitcoinExchange::parseCsvLine(
-	const std::string& line, const char delim) const
+	const std::string& line, const char delim)
 {
 	static const std::string format = "%F%n";
 
@@ -58,7 +43,29 @@ BitcoinExchange::entry_t BitcoinExchange::parseCsvLine(
 	return data;
 }
 
-void BitcoinExchange::printRealValues(std::ifstream& inputFile) const
+void BitcoinExchange::initializeDatabase(std::ifstream &dbFile)
+{
+	db.clear();
+
+	std::string line;
+	std::getline(dbFile, line); // skip header
+
+	entry_t entry;
+
+	while (true) {
+		std::getline(dbFile, line);
+		if (dbFile.eof())
+			break;
+
+		entry = parseCsvLine(line, ',');
+		if (entry.first == -1)
+			std::cerr << "error: bad db entry => " << line << '\n';
+		else
+			db.insert(entry);
+	}
+}
+
+void BitcoinExchange::printRealValues(std::ifstream& inputFile)
 {
 	const std::time_t earliestTime = db.begin()->first;
 
