@@ -30,6 +30,8 @@ int main(int argc, char** argv)
 		std::getline(in, line);
 		pos = 0;
 		while (true) {
+			if (str.empty())
+				break;
 			pos = line.find(str, pos);
 			if (pos == std::string::npos)
 				break;
