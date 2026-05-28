@@ -10,8 +10,6 @@ int main()
 		bob.attack();
 		club.setType("some other type of club");
 		bob.attack();
-		bob.setWeapon(knife);
-		bob.attack();
 	}
 	{
 		Weapon club = Weapon("crude spiked club");
